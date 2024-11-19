@@ -6,6 +6,9 @@ import { posts } from "./direct.js"; // import direct.js  ES Modules
 const app = express(); // salviamo la istanza principale
 const port = 666; // # porta
 
+//set middlewere .use property
+app.use(express.static("public_assets"));
+
 //STEP 3 - rotta principale
 app.get("/", (re, res) => {
   console.log("Server del mio blog");
