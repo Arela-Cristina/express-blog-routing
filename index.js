@@ -3,6 +3,7 @@ console.log("Hello");
 //STEP 1 import and init
 import express from "express";
 import { posts } from "./direct.js"; // import direct.js  ES Modules
+import { router as postsRouter } from "./routers/posts.js";
 const app = express(); // salviamo la istanza principale
 const port = 1111; // # porta
 
@@ -15,41 +16,8 @@ app.get("/", (req, res) => {
   res.send("Benvenuto al server del mio blog");
 });
 
-//STEP 4 - CRUDE
-//show
-app.get("/:id", (req, res) => {
-  const id = req.params.id;
-  console.log(`Detagli del pasticino ${id}`);
-  res.send(`Detagli del pasticino ${id}`);
-});
-
-//store
-app.post("/", (req, res) => {
-  console.log("Creiamo un nuovo pasticino");
-  res.send("Creiamo un nuovo pasticino");
-});
-
-//update
-app.put("/:id", (req, res) => {
-  const id = req.params.id;
-  console.log(`Aggiornamento pasticino ${id}`);
-  res.send(`Aggiornamento pasticino ${id}`);
-});
-
-//modify
-app.patch("/:id", (req, res) => {
-  const id = req.params.id;
-  console.log(`Aggiornamento parziale pasticino ${id}`);
-  res.send(`Aggiornamento parziale pasticino ${id}`);
-});
-
-//deleted
-app.delete("/:id", (req, res) => {
-  const id = req.params.id;
-  console.log(`Eliminazione pasticino ${id}`);
-  res.send(`Eliminazione  pasticino ${id}`);
-});
-
+// STEP 5- Colleguiamo la CRUDE al file posts.js 
+app.use("/posts", postsRouter);
 
 
 //STEP 2  - server ascolta client
