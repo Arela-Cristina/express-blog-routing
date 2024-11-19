@@ -1,4 +1,4 @@
-import express from "express";; //importiamo express framework
+const express = require("express"); //importiamo express framework
 const router = express.Router(); //invochiamo funzione Router
 
 //STEP 4 - CRUDE E ROTTA PRINCIPALE
@@ -43,4 +43,4 @@ router.delete("/:id", (req, res) => {
 });
 
 
-export { router }; //sportiamo router
+module.exports = router; //sportiamo router

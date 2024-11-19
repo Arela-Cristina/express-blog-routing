@@ -26,4 +26,4 @@ const posts = [
   },
 ];
 
-export { posts }; //export to index.js ES Modules
+module.exports = { posts }; //export to index.js ES Modules

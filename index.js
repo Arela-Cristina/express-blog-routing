@@ -1,9 +1,9 @@
 console.log("Hello");
 
 //STEP 1 import and init
-import express from "express";
-import { posts } from "./direct.js"; // import direct.js  ES Modules
-import { router as postsRouter } from "./routers/posts.js";
+const express = require("express");
+const { posts } = require("./direct.js"); // import direct.js  ES Modules
+const postsRouter = require("./routers/posts.js");
 const app = express(); // salviamo la istanza principale
 const port = 1111; // # porta
 
