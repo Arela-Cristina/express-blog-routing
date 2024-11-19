@@ -1,12 +1,15 @@
 const express = require("express"); //importiamo express framework
 const router = express.Router(); //invochiamo funzione Router
 
+const { posts } = require("../direct.js"); //importiamo posts Commom Js
+
 //STEP 4 - CRUDE E ROTTA PRINCIPALE
 
 //index
 router.get("/", (req, res) => {
   console.log("Index pasticini");
-  res.send("Index pasticini");
+//   res.send("Index pasticini");
+  res.json(posts); //return post in JSON
 });
 
 router.get("/:id", (req, res) => {
@@ -41,6 +44,5 @@ router.delete("/:id", (req, res) => {
   console.log(`Eliminazione pasticino ${id}`);
   res.send(`Eliminazione  pasticino ${id}`);
 });
-
 
 module.exports = router; //sportiamo router
