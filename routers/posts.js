@@ -8,14 +8,16 @@ const { posts } = require("../direct.js"); //importiamo posts Commom Js
 //index
 router.get("/", (req, res) => {
   console.log("Index pasticini");
-//   res.send("Index pasticini");
+  //   res.send("Index pasticini");
   res.json(posts); //return post in JSON
 });
 
+//show
 router.get("/:id", (req, res) => {
-  const id = req.params.id;
+  const id = parseInt(req.params.id);
+  const post = posts.find((el) => el.id === id); //trova il oggetto con id ...
   console.log(`Detagli del pasticino ${id}`);
-  res.send(`Detagli del pasticino ${id}`);
+  res.json(post); // ... e ritorna il oggetto completo
 });
 
 //store
