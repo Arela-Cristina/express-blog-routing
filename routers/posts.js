@@ -1,2 +1,8 @@
-const express = require("express");
-const router = express.Router();
+const express = require("express"); //importiamo express framework
+const router = express.Router(); //invochiamo funzione Router
+
+
+export { router }; //sportiamo router
+
+
+
